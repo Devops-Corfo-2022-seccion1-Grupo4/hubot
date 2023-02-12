@@ -13,7 +13,7 @@ module.exports = (robot) ->
   enterReplies = ['Hola', 'Bienvenido', 'Wena e\'lmanito', 'Huele a otaku', 'ಠ_ಠ']
 
   robot.respond /listar definciones/i, (res) ->
-     res.reply "Terminos disponibles calms / lean / Release Manager"
+     res.reply "Terminos disponibles calms / lean / release-manager"
 
   robot.respond /define (.*)/i, (res) ->
     keyword = res.match[1]
@@ -21,7 +21,7 @@ module.exports = (robot) ->
       res.reply "• Culture: • Dev y Ops (y todo O&T) con un objetivo común, entregar valor rápido y frecuente \n• Automation • Pipelines de CI/CD automáticos \n• Lean • Eliminar desperdicios y restricciones \n• Measurements • Recolectar datos en todo el flujo y hacerlos visible a todos los sistemas \n• Sharing • Aumentar los canales de comunicación y colaboración"
     if keyword is "lean"
       res.reply "Lean es una filosofía que empuja a los individuos que lo utilizan a pensar cómo hacer los servicios o productos mejor en su día a día. Focalizado en la mejora continua, en la reducción o eliminación de todo aquello que genere pérdida (las 3 Mu: Muda, Muri y Mura) en el proceso extremo a extremo(E2E- End to End) buscando aportar el mayor valor al cliente.\nLean usa el Value Stream Mapping como herramienta de optimización del proceso extremo a extremo "
-    if keyword is "Release Manager"
+    if keyword is "release-manager"
       res.reply "Experto en:\n• Release Orchestration\n• Estrategias de versionamiento\n• Estrategias de release\n• Agile Service Management\n• Prácticas de Continuous integration/testing\n• Práctivas de Continuous delivery/deployment "
 
     else

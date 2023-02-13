@@ -25,8 +25,22 @@ module.exports = (robot) ->
       res.reply "Experto en:\n• Release Orchestration\n• Estrategias de versionamiento\n• Estrategias de release\n• Agile Service Management\n• Prácticas de Continuous integration/testing\n• Práctivas de Continuous delivery/deployment "
 
     else
-      res.reply "Termino #{concepto} no cargado en KB, contacte al Lucho"  
+      res.reply "Termino #{keyword} no cargado en KB, contacte al Lucho"  
 
+
+
+  robot.respond /(.*)hora(.*)/i, (msg) ->
+    now = new Date()
+    msg.reply "Son las #{now.toLocaleTimeString()}."
+
+  robot.respond /ejecutar comando (.*)/i, (msg) ->
+    command = msg.match[1]
+    exec = require('child_process').exec
+    exec command, (err, stdout, stderr) ->
+      if err
+        msg.reply "Error: #{err}"
+      else
+        msg.reply "Salida: #{stdout}"
 
   robot.hear /hola/i, (res) ->
      res.send res.random enterReplies
